@@ -17,15 +17,18 @@ const objectSchema = {
     release_date: { 
         type: String, 
         required: true 
-    }
-};
+    },
+    backdrop_path: { 
+        type: String
+    },
+    overview: { 
+        type: String
+    },
+    vote_average: { 
+        type: String
+    },
 
-/* {
-    "id": 1,
-    "title": "Hombres de Honor",
-    "poster_path": "/wNUAnXV1mzOOfvnVBIYsalkk078.jpg",
-    "release_date": "2000-09-13"
-} */
+};
 
 const productSchema = mongoose.Schema(objectSchema);
 

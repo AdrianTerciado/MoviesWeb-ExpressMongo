@@ -38,8 +38,7 @@ const getAllFavorites = async (req, res) => {
 
             res.status(200).json(result);
         } else {
-            products = await Product.find({}, ' -_id -__v');
-            res.status(200).json(products);
+            res.status(400).json({ msj: `Ha fallado algo` });
         }
     }
     catch (error) {
@@ -50,8 +49,8 @@ const getAllFavorites = async (req, res) => {
 
 const deleteFavorite = async (req, res) => {
     try {
-        const id = req.body;
-        await Anuncio.deleteOne({ id });
+        const {id} = req.params;
+        await Favorite.deleteOne({ id });
         res.status(200).send("Pelicula borrada de favoritos");
     }
     catch (error) {
